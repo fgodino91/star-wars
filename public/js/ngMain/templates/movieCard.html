@@ -1,0 +1,12 @@
+
+<div class="mc">
+    <img class="mc__poster" title="{{movie.title}}" ng-src="{{movie.poster}}">
+    <div class="mc__info">
+        <h3 class="mc__info__title">{{movie.title}}</h3>
+        <div class="mc__info__director"><b>Director:</b> {{movie.director}}</div>
+        <div class="mc__info__characters">
+            <b>Characters:</b>
+            <span ng-repeat="character in threeCharacters">{{character.name}}{{$last ? '' : ', '}}</span>
+        </div>
+    </div>
+</div>

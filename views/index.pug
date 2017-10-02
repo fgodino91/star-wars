@@ -1,0 +1,30 @@
+extends ./partials/layout.pug
+
+block append head
+  link(rel='stylesheet' href=bundle('ngMain.css'))
+
+block body
+  .container-fluid(ng-app="sw.main")
+    .row(ng-controller="MovieCtlr as movieCtlr")
+
+      main.col-md-9.order-md-2(role='main')
+        .row.row-eq-height 
+          .col-sm-6.col-md-4.main__pair-container(ng-repeat="index in getEvenIndexes(movieCtlr.movies.length)")
+            .main__pair-content
+              div(ng-if="movieCtlr.movies[index]" movie-card="::movieCtlr.movies[index]")
+              div(ng-if="movieCtlr.movies[index + 1]" movie-card="::movieCtlr.movies[index + 1]")
+
+      nav.col-md-3.order-md-1
+        .side__card
+          h3.side__card__title Favorite Character
+          div(character-card="::movieCtlr.favoriteCharacter")
+        .side__card
+          h3.side__card__title Least Favorite Character
+          div(character-card="::movieCtlr.leastFavoriteCharacter")
+        .side__card
+          h3.side__card__title How long are those opening crawls?
+          div(crawl-chart movies="::movieCtlr.movies")
+
+
+block pageScripts
+  script(type="text/javascript" src=bundle('ngMain.js'))

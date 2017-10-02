@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+.main__pair-container {
+	padding: 10px;
+}
+
+.main__pair-content {
+	
+    background: $main_color;
+    padding: 10px;
+    border: 1px solid $secondary_color;
+    height: 100%;
+
+	.mc {
+		display: inline-block;
+    	width: 50%;
+    	vertical-align: top;
+	}
+}
+
+.side__card {
+	padding: 10px;
+	border: 1px solid $secondary_color;
+	margin-top: 10px;
+
+	.side__card__title {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+}
